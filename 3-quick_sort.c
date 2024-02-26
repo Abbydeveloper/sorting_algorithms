@@ -42,7 +42,6 @@ int partition_quick_sort(int *array, int lower, int upper, size_t size)
 		{
 			start++;
 			swap_digits(array, start, end);
-			print_array(array, size);
 		}
 
 	}		
