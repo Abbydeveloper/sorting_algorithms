@@ -12,31 +12,25 @@
 int partition_quick_sort(int *array, int lower, int upper, size_t size)
 {
 	int pivot = array[lower];
-	int start = lower;
-	int end = upper;
+	int start = lower - 1;
+	int end = upper + 1;
 	int tmp;
 
-	while (start < end)
+	while (1)
 	{
-		while (array[start] <= pivot)
+		while (array[start] < pivot)
 			start++;
 		while (array[end] > pivot)
 			end--;
 
-		if (start < end)
-		{
-			tmp = array[start];
-			array[start] = array[end];
-			array[end] = tmp;
-			print_array(array, size);
-		}
+		if (start >= end)
+			return end;
+		
+		tmp = array[start];
+		array[start] = array[end];
+		array[end] = tmp;
+		print_array(array, size);
 	}
-	tmp = array[lower];
-	array[lower] = array[end];
-	array[end] = tmp;
-	print_array(array, size);
-	
-	return end;
 }
 
 /**
